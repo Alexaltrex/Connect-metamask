@@ -16,11 +16,11 @@ import DoneAllIcon from '@mui/icons-material/DoneAll';
 import {useOutsideButNotOnTargetClick} from "../../hooks/useOutsideClick";
 import Jazzicon from "react-jazzicon";
 
-
 export const Header = observer(() => {
     const {
         appStore: {
             showAccountPopup, setShowAccountPopup,
+            setAlert
         },
         cryptoStore: {
             provider, setProvider,
@@ -64,7 +64,6 @@ export const Header = observer(() => {
     const accountChangeHandler = async (newAccount: string) => {
         setCurrentAccountAddress(newAccount);
         await getBalance(newAccount);
-        //setErrorMessage("");
     }
 
     // обработчик смены сети
@@ -80,7 +79,12 @@ export const Header = observer(() => {
             });
             setBalance(ethers.utils.formatEther(balance))
         } catch (e: any) {
-            //setErrorMessage(e?.message || "error")
+            console.log(e?.message || "Error");
+            setAlert({
+                open: true,
+                message: e?.message || "Error",
+                severity: "error"
+            })
         }
     }
 
@@ -94,13 +98,22 @@ export const Header = observer(() => {
                     const accounts = await provider.request({method: 'eth_requestAccounts'});
                     await accountChangeHandler(accounts[0]);
                 } catch (e: any) {
-                    console.log(e)
-                    //setErrorMessage(e?.message || "error")
+                    console.log(e?.message || "Error");
+                    setAlert({
+                        open: true,
+                        message: e?.message || "Error",
+                        severity: "error"
+                    })
                 } finally {
                     setConnecting(false);
                 }
             } else {
-                //setErrorMessage("Please install MetaMask")
+                console.log("Please install MetaMask")
+                setAlert({
+                    open: true,
+                    message: "Please install MetaMask",
+                    severity: "error"
+                });
             }
         }
     }
