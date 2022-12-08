@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Connect-metamask/static/css/main.fb963b48.css",
-    "main.js": "/Connect-metamask/static/js/main.23456f9d.js",
+    "main.js": "/Connect-metamask/static/js/main.cb6467ec.js",
     "static/js/787.1e5b602b.chunk.js": "/Connect-metamask/static/js/787.1e5b602b.chunk.js",
     "index.html": "/Connect-metamask/index.html",
     "main.fb963b48.css.map": "/Connect-metamask/static/css/main.fb963b48.css.map",
-    "main.23456f9d.js.map": "/Connect-metamask/static/js/main.23456f9d.js.map",
+    "main.cb6467ec.js.map": "/Connect-metamask/static/js/main.cb6467ec.js.map",
     "787.1e5b602b.chunk.js.map": "/Connect-metamask/static/js/787.1e5b602b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fb963b48.css",
-    "static/js/main.23456f9d.js"
+    "static/js/main.cb6467ec.js"
   ]
 }
